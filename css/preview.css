@@ -1,0 +1,78 @@
+/* 标题文字颜色 */
+h1,h2,h3,h4,h5,h6{
+  color: #1E4E79;
+}
+/* 字体 */
+body{
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+/* 单行代码样式 */
+code {
+  border: 1px solid #ccc;
+  background: #f9f2f4;
+  padding: 0 3px;
+  border-radius: 3px;
+  color: #C8254E;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 11pt;
+}
+/* 引用标签样式 */
+blockquote {
+  padding-left: 4px;
+  border-left-style: solid;
+  border-left-width: 8px;
+  border-color: #D6DBDF;
+  background: none repeat scroll 0 0 rgba(102,128,153,.05);
+  color: #455A64;
+  margin: 10px 40px;
+}
+blockquote p {
+  padding: 6px;
+}
+/* 表格样式 */
+table {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  width: 95%;
+  margin-left: 20px;
+}
+th,td{
+  border: 1px solid #ddd;
+  padding: .65em;
+}
+tbody tr:nth-child(odd) {
+ background: #eee;
+}
+th {
+     background-color: #ccc;
+}
+/* 高亮显示 */
+.hightlight {
+  background: #dedede;
+  padding: 0 3px;
+  border-radius: 3px;
+  color: #FF5722;
+  font-size: 11pt;
+}
+/* TOC */
+.toc{border:0px solid #ccc;border-radius: 4px;width:400px;}
+.toc span{color: red}
+.topic {padding-left: 1.5em;padding-top: 2px;margin-top: 2px;}
+.topic li{list-style:none;}
+.topic a{text-decoration: none;color:grey;}
+.topic a:hover{color:red;font-weight:bold;}
+.topic li ol {padding-left:1em;counter-reset:topic;}
+.topic ol li:before {counter-increment:topic;content:counters(topic,".")". ";color:grey;}
+#toc_toggle{float: left;margin-top: 4px;color: #fff;border-radius: 4px;border: 1px #fff solid;background-color: #009688;padding: 3px;font-size: 8pt;width:19px;height:19px;}
+.toc a:hover {
+  color: darkgreen;
+  font-weight:bold;
+}
+/* 图文混排 */
+.img {
+  width: 90%;
+}
+/* LaTex公式 */
+.latex{
+  text-align: center;
+}
