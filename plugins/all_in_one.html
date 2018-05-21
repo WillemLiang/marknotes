@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>All in one</title>
+  <script type="text/javascript" src="./jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="./raphael/raphael-min.js"></script>
+  <script type="text/javascript" src="./flowchart/flowchart.js"></script>
+  <!-- 遍历flowchart类,生成全文所需的流程图 -->
+  <script>
+    $(document).ready(function (){
+      var cnt=1;    //flowchart.js依赖id属性,在此统一生成id
+      $(".flowchart").each(
+        function(){
+          $(this).attr('id','flowchart-'+cnt);
+          cnt++;
+        });
+      });
+    $(window).load(function(){
+      $("div[id^=flowchart-]").each(
+        function(){
+          var diagram = flowchart.parse($(this).text());
+          $(this).empty();
+          diagram.drawSVG($(this).attr("id"),{"maxWidth": "3"});
+        });
+      });
+  </script>
+  <!-- 甘特图渲染 -->
+  <script type="text/javascript" src="./mermaid/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad:true});</script>
+  <!-- LaTex公式支持 -->
+  <script type="text/javascript" src="./jslatex/jquery.jslatex.packed.js"></script>
+  <script>$(function(){$(".latex").latex();});</script>
+  <!-- 代码高亮方案 -->
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shCore.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushBash.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushCpp.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushCSharp.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushCss.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushDelphi.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushDiff.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushGroovy.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushJava.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushJScript.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushPerl.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushPhp.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushPowerShell.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushPlain.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushPython.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushRuby.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushScala.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushSql.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushVb.js"></script>
+  <script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="./syntaxhighlighter/styles/shCore.css"/>
+  <link type="text/css" rel="stylesheet" href="./syntaxhighlighter/styles/shThemeDefault.css"/>
+  <script type="text/javascript">SyntaxHighlighter.defaults.toolbar = "false";SyntaxHighlighter.all();</script>
+  <link rel="stylesheet" href="toc/font-style.css"/>
+  <!-- 遍历全文Header,生成TOC -->
+  <script type="text/javascript" src="./toc/toc.jquery.min.js"></script>
+  <!-- 样式 -->
+  <style type="text/css">
+    /* 标题文字颜色 */
+    h1,h2,h3,h4,h5,h6{
+      color: #1E4E79;
+    }
+    /* 字体 */
+    body{
+      font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    }
+    /* 单行代码样式 */
+    code {
+      border: 1px solid #ccc;
+      background: #f9f2f4;
+      padding: 0 3px;
+      border-radius: 3px;
+      color: #C8254E;
+      font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+      font-size: 11pt;
+    }
+    /* 引用标签样式 */
+    blockquote {
+      padding-left: 4px;
+      border-left-style: solid;
+      border-left-width: 8px;
+      border-color: #D6DBDF;
+      background: none repeat scroll 0 0 rgba(102,128,153,.05);
+      color: #455A64;
+      margin: 10px 40px;
+    }
+    blockquote p {
+      padding: 6px;
+    }
+    /* 表格样式 */
+    table {
+      border: 1px solid #ddd;
+      border-collapse: collapse;
+      width: 95%;
+      margin-left: 20px;
+    }
+    th,td{
+      border: 1px solid #ddd;
+      padding: .65em;
+    }
+    tbody tr:nth-child(odd) {
+     background: #eee;
+    }
+    th {
+         background-color: #ccc;
+    }
+    /* 高亮显示 */
+    .hightlight {
+      background: #dedede;
+      padding: 0 3px;
+      border-radius: 3px;
+      color: #FF5722;
+      font-size: 11pt;
+    }
+    /* TOC */
+    .toc{border:0px solid #ccc;border-radius: 4px;width:400px;}
+    .toc span{color: red}
+    .topic {padding-left: 1.5em;padding-top: 2px;margin-top: 2px;}
+    .topic li{list-style:none;}
+    .topic a{text-decoration: none;color:grey;}
+    .topic a:hover{color:red;font-weight:bold;}
+    .topic li ol {padding-left:1em;counter-reset:topic;}
+    .topic ol li:before {counter-increment:topic;content:counters(topic,".")". ";color:grey;}
+    #toc_toggle{float: left;margin-top: 4px;color: #fff;border-radius: 4px;border: 1px #fff solid;background-color: #009688;padding: 3px;font-size: 8pt;width:19px;height:19px;}
+    .toc a:hover {
+      color: darkgreen;
+      font-weight:bold;
+    }
+    /* 图文混排 */
+    .img {
+      width: 90%;
+    }
+    /* LaTex公式 */
+    .latex{
+      text-align: center;
+    }
+  </style>
+
+</head>
+<body>
+  <h1>Markdown examples all in one</h1>
+  <p>liangwl © 2018-04-22 22:47:49</p>
+  <div class='toc'></div>
+  <h2>基础Markdown标签支持</h2>
+  <h3>文本样式</strong></h3>
+  <p>
+    正常文字
+    <em>*斜体文字*</em>
+    <strong>**粗体文字**</strong>
+    <strong><em>***加粗斜体***</em></strong>
+    <u>++下划线++</u>
+    <del>~~删除线~~</del>
+    <strong class='hightlight'>==高亮显示==</strong>
+  </p>
+  <h3>单行代码测试-高效的Perl单行代码</h3>
+  <p>如果需要处理tab分割的文件的每一行内容，那么<code>perl -alne</code>参数几乎可以说是必备的，例如<code>while(<>){chomp;@F=split /\s+/,$_;print "$F[0]\n"}</code>相当于</p>
+  <pre class="brush:perl;">
+  perl -alne 'print $F[0]'
+  </pre>
+  <h3>引用内容测试-blockquote标签</h3>
+  <blockquote>
+  <p>Aim for the moon. If you miss, you may hit a star.<br>
+  ~W. Clement Stone</p>
+  </blockquote>
+  <h3>无序列表</h3>
+  <ul>
+  <li>列表项目1</li>
+  <li>列表项目2</li>
+  <li>列表项目3</li>
+  </ul>
+  <h3>有序列表</h3>
+  <ol>
+  <li>列表项目A</li>
+  <li>列表项目B</li>
+  <li>列表项目C</li>
+  </ol>
+  <h3>表格</h3>
+  <table>
+    <thead>
+      <tr>
+       <th>Tables</th>
+       <th style="text-align:center;">Are</th>
+       <th style="text-align:right;">Cool</th>
+      </tr>
+   </thead>
+  <tbody>
+    <tr>
+     <td><strong>col 3 is</strong></td>
+     <td style="text-align:center;">right-aligned</td>
+     <td style="text-align:right;"><span>$</span>1600</td>
+   </tr>
+   <tr>
+     <td>col 2 is</td>
+     <td style="text-align:center;"><em>centered</em></td>
+     <td style="text-align:right;"><span>$</span>12</td>
+   </tr>
+   <tr>
+     <td>zebra stripes</td>
+     <td style="text-align:center;"><del>are neat</del></td>
+     <td style="text-align:right;"><span>$</span>1</td>
+   </tr>
+  </tbody>
+  </table>
+
+  <h3>待办事项-checkbox</h3>
+  <div><input type="checkbox">未打勾的选框</div>
+  <div><input type="checkbox" checked>打勾的选框</div>
+
+  <h3>图文混排测试</h3>
+  <p>详细标准测试结果请参考：<a href="https://gist.github.com/rxin/c1592c133e4bccf515dd" target="_blank">DataFrame simple aggregation performance benchmark</a><br>
+  <img class='img' src="https://databricks.com/wp-content/uploads/2015/02/Screen-Shot-2015-02-16-at-9.46.39-AM.png" alt="测试结果"/></p>
+  <h2>甘特图</h2>
+  <h3>流程图-mermaid</h3>
+  <div class="mermaid">
+  graph LR
+      A --- B
+      B-->C[fa:fa-ban forbidden]
+      B-->D(fa:fa-spinner);
+  </div>
+
+  <h3>甘特图-mermaid</h3>
+  <div class="mermaid">
+    gantt
+       dateFormat  YYYY-MM-DD
+       title Adding GANTT diagram functionality to mermaid
+
+       section A section
+       Completed task            :done,    des1, 2014-01-06,2014-01-08
+       Active task               :active,  des2, 2014-01-09, 3d
+       Future task               :         des3, after des2, 5d
+       Future task2              :         des4, after des3, 5d
+
+       section Critical tasks
+       Completed task in the critical line :crit, done, 2014-01-06,24h
+       Implement parser and jison          :crit, done, after des1, 2d
+       Create tests for parser             :crit, active, 3d
+       Future task in critical line        :crit, 5d
+       Create tests for renderer           :2d
+       Add to mermaid                      :1d
+
+       section Documentation
+       Describe gantt syntax               :active, a1, after des1, 3d
+       Add gantt diagram to demo page      :after a1  , 20h
+       Add another diagram to demo page    :doc1, after a1  , 48h
+
+       section Last section
+       Describe gantt syntax               :after doc1, 3d
+       Add gantt diagram to demo page      :20h
+       Add another diagram to demo page    :48h
+  </div>
+
+  <h2>流程图</h2>
+  <h3>流程图test1-flowchart</h3>
+  <div class="flowchart">
+  st=>start: Start
+  e=>end: End
+  op1=>operation: My Operation
+  sub1=>subroutine: My Subroutine
+  cond=>condition: Yes or No?
+  io=>inputoutput: catch someting...
+
+  st->op1->cond
+  cond(yes)->io->e
+  cond(no)->sub1(right)->op1
+  </div>
+
+  <h3>流程图test2-flowchart</h3>
+  <div class="flowchart">
+  st=>start: Start|past:>http://www.google.com[blank]
+  e=>end: End:>http://www.google.com
+  op1=>operation: My Operation|past
+  op2=>operation: Stuff|current
+  sub1=>subroutine: My Subroutine|invalid
+  cond=>condition: Yes
+  or No?|approved:>http://www.baidu.com
+  c2=>condition: Good idea|rejected
+  io=>inputoutput: catch something...|request
+
+  st->op1(right)->cond
+  cond(yes, right)->c2
+  cond(no)->sub1(left)->op1
+  c2(yes)->io->e
+  c2(no)->op2->e
+  </div>
+
+  <h2>LaTex公式</h2>
+  <h3>行内嵌套LaTex公式-jsLatex</h3>
+  <p>When <span class="latex">$a \ne 0$</span>, there are two solutions to <span class="latex">\(ax^2 + bx + c = 0\)</span> and they are</p>
+  <p class="latex">$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$</p>
+
+  <p>当 <span class="latex">$a \ne 0$</span>时，方程 <span class="latex">\(ax^2 + bx + c = 0\)</span> 有两个解：</p>
+  <p class="latex">$$
+  x=\frac{-b \pm \sqrt{\Delta }}{2a}=\frac{-b \pm \sqrt{b^{2}-4ac }}{2a}
+  $$</p>
+
+  <h3>多行LaTex公式-jsLatex</h3>
+  <div class="latex">
+  $
+  \begin{eqnarray}
+  \nabla\cdot\vec{E} &=& \frac{\rho}{\epsilon_0} \\
+  \nabla\cdot\vec{B} &=& 0 \\
+  \nabla\times\vec{E} &=& -\frac{\partial B}{\partial t} \\
+  \nabla\times\vec{B} &=& \mu_0\left(\vec{J}+\epsilon_0\frac{\partial E}{\partial t} \right)
+  \end{eqnarray}
+  $
+  </div>
+
+  <h2>代码高亮</h2>
+  <h3>示例代码-文件树</h3>
+  <pre class="brush:bash;">
+  .
+  ├── Cache
+  │   └── NoteFavorites
+  ├── FavPage.xml
+  ├── NoteFavorites
+  │   └── configuration.xml
+  └── OneMarkdown
+      ├── MDDB
+      │   └── Technical
+      │       ├── Markdown.dbt
+      │       ├── +配置信息
+      │       │   ├── Laptop
+      │       │   ├── VMware
+      │       │   └── VPS
+      │       └── +学习笔记
+      │           ├── +DW
+      │           │   ├── DataModeling
+      │           │   │   ├── Bill Inmon.md
+      │           │   │   └── Kimball.md
+      │           │   └── Tools
+      │           │       ├── GreenPlum.md
+      │           │       ├── HBase.md
+      │           │       ├── Hive.md
+      │           │       ├── Presto.md
+      │           │       └── Teradata.md
+      │           └── +ETL
+      │               └── 数据管道
+      │                   ├── flume.md
+      │                   ├── kafka.md
+      │                   └── sqoop.md
+      └── Preview
+          └── Preview.html
+  </pre>
+
+  <h3>示例代码-Python</h3>
+  <pre class="brush:python;">
+  #!/usr/local/bin/python3.5.4
+  import findspark
+  findspark.init()
+  from pyspark import SparkConf,SparkContext
+
+  def initializeCtx(appName,mode):
+      conf = SparkConf().setAppName(appName).setMaster(mode)
+      sc = SparkContext(conf=conf)
+      return sc
+
+  if __name__=="__main__":
+      #初始化Spark上下文
+      sc = initializeCtx('test','local')
+
+      #函数式写法
+      seq = list(range(-20,20,2))
+      seq_fmap = filter(lambda x:abs(x)<10,map(lambda x:x+1,seq))
+      #apply(print,seq_fmap) #in Python2.x,经典写法
+      print(*seq_fmap) #Python3.x，使用时加星号
+
+      #PySpark
+      rdd = sc.parallelize(range(-20,20,2))
+      rdd_fmap = rdd.map(lambda x:x+1).filter(lambda x:abs(x)<10).collect()
+      print(*rdd_fmap)
+  </pre>
+  <!-- 测试TOC格式 -->
+  <H4>TEST_H4_1</H4>
+  <H4>TEST_H4_2</H4>
+  <H4>TEST_H4_3</H4>
+  <H5>TEST_H5_1</H5>
+  <H5>TEST_H5_2</H5>
+  <H4>TEST_H4_4</H4>
+  <H5>TEST_H5_3</H5>
+</body>
+<script>
+  //待页面渲染完成,保存“静态”页面
+  window.onload = function(){
+    console.info($("html").html());
+  }
+</script>
+</html>

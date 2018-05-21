@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>MarkNotes</title>
+	<style type="text/css"></style>
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/preview.css">
+	<link rel="stylesheet" href="plugins/codemirror/lib/codemirror.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/3024-day.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/3024-night.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/abcdef.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/ambiance-mobile.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/ambiance.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/base16-dark.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/base16-light.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/bespin.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/blackboard.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/cobalt.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/colorforth.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/dracula.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/duotone-dark.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/duotone-light.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/eclipse.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/elegant.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/erlang-dark.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/gruvbox-dark.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/hopscotch.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/icecoder.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/idea.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/isotope.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/lesser-dark.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/liquibyte.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/lucario.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/material.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/mbo.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/mdn-like.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/midnight.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/monokai.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/neat.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/neo.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/night.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/oceanic-next.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/panda-syntax.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/paraiso-dark.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/paraiso-light.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/pastel-on-dark.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/railscasts.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/rubyblue.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/seti.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/shadowfox.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/solarized.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/ssms.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/the-matrix.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/tomorrow-night-bright.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/tomorrow-night-eighties.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/ttcn.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/twilight.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/vibrant-ink.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/xq-dark.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/xq-light.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/yeti.css">
+	<link rel="stylesheet" href="plugins/codemirror/theme/zenburn.css">
+	<!--Base-->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/marked.js"></script>
+	<script src="js/scroll.js"></script>
+	<!--CodeMirror-->
+	<script type="text/javascript" src="plugins/codemirror/lib/codemirror.js"></script>
+	<script type="text/javascript" src="plugins/codemirror/mode/markdown/markdown.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="topbar">
+		<div class="toolbar">
+			<div id="views">
+				<button class="user-avatar" value="Notebook">
+					<ul>
+						<li class="vw-tabs view-tab-editor"><a href="javascript:void(0)">Editor</a></li>
+						<li class="vw-tabs view-tab-library"><a href="javascript:void(0)">Library</a></li>
+						<li class="vw-tabs view-tab-login"><a href="javascript:void(0)">Login</a></li>
+					</ul>
+				</button>
+			</div>
+			<div id="searchbox">
+				<input type="text" id="searchtext" name="search" placeholder="请输入关键字">
+			</div>
+			<div id="nav">
+				<ol class="breadcrumb">
+					<li><a href="#">MyFolder</a></li>
+					<li><a href="#">SubFolder</a></li>
+					<li><a>NoteTitle</a></li>
+				</ol>
+			</div>
+			<div id="toolkit">
+				<ul class="toolkit-sets">
+					<li class="theme-selector toolkit-item"><a>
+						<select onchange="selectTheme()" id="selector">
+							<option selected="default">Theme</option>
+							<option>3024-day</option>
+							<option>3024-night</option>
+							<option>abcdef</option>
+							<option>ambiance</option>
+							<option>base16-dark</option>
+							<option>base16-light</option>
+							<option>bespin</option>
+							<option>blackboard</option>
+							<option>cobalt</option>
+							<option>colorforth</option>
+							<option>darcula</option>
+							<option>default</option>
+							<option>dracula</option>
+							<option>duotone-dark</option>
+							<option>duotone-light</option>
+							<option>eclipse</option>
+							<option>elegant</option>
+							<option>erlang-dark</option>
+							<option>gruvbox-dark</option>
+							<option>hopscotch</option>
+							<option>icecoder</option>
+							<option>idea</option>
+							<option>isotope</option>
+							<option>lesser-dark</option>
+							<option>liquibyte</option>
+							<option>lucario</option>
+							<option>material</option>
+							<option>mbo</option>
+							<option>mdn-like</option>
+							<option>midnight</option>
+							<option>monokai</option>
+							<option>neat</option>
+							<option>neo</option>
+							<option>night</option>
+							<option>oceanic-next</option>
+							<option>panda-syntax</option>
+							<option>paraiso-dark</option>
+							<option>paraiso-light</option>
+							<option>pastel-on-dark</option>
+							<option>railscasts</option>
+							<option>rubyblue</option>
+							<option>seti</option>
+							<option>shadowfox</option>
+							<option>solarized dark</option>
+							<option>solarized light</option>
+							<option>the-matrix</option>
+							<option>tomorrow-night-bright</option>
+							<option>tomorrow-night-eighties</option>
+							<option>ttcn</option>
+							<option>twilight</option>
+							<option>vibrant-ink</option>
+							<option>xq-dark</option>
+							<option>xq-light</option>
+							<option>yeti</option>
+							<option>zenburn</option>
+						</select>
+					</a>
+					</li>
+					<li class="toolkit-item toolkit-views"><a>views</a>
+						<span class="toolkit-views-item">
+							<ul class="toolkit-collapse-items">
+								<li class="toolkit-collapse-item"><a href="javascript:void(0)">Multipanel</a></li>
+								<li class="toolkit-collapse-item"><a href="javascript:void(0)">Simple</a></li>
+								<li class="toolkit-collapse-item"><a href="javascript:void(0)">Efficient</a></li>
+								<li class="toolkit-collapse-item"><a href="javascript:void(0)">Preview</a></li>
+							</ul>
+						</span>
+					</li>
+					<li class="toolkit-item toolkit-export"><a>export</a>
+						<span class="toolkit-export-item">
+							<ul class="toolkit-collapse-items">
+								<li class="toolkit-collapse-item"><a href="javascript:void(0)">markdown</a></li>
+								<li class="toolkit-collapse-item"><a href="javascript:void(0)">html</a></li>
+							</ul>
+						</span>
+					</li>
+					<li class="toolkit-item toolkit-upload"><a href="javascript:void(0)">upload</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="tab">
+	<div class="tab-editor-preview">
+		<div class="sidebar">
+			<div class="folder">
+			  <div class="folder-treeview">
+			  <p>Library</p>
+			  <ol class="folder-item">
+			    <li>
+			      <a href="#folder-item-1">文件夹</a>
+			      <ol>
+			        <li><a href="#folder-item-2">子文件夹</a></li>
+			        <li><a href="#folder-item-3">子文件夹</a></li>
+			        <li><a href="#folder-item-4">子文件夹</a></li>
+			        <li><a href="#folder-item-5">子文件夹</a>
+			          <ol>
+			            <li><a href="#folder-item-6">子文件夹</a></li>
+			            <li><a href="#folder-item-7">子文件夹</a></li>
+			          </ol>
+			        </li>
+			        <li><a href="#folder-item-8">子文件夹</a>
+			          <ol>
+			            <li><a href="#folder-item-9">子文件夹</a></li>
+			            <li><a href="#folder-item-10">子文件夹</a>
+			            <ol>
+			              <li><a href="#folder-item-11">子文件夹</a></li>
+			              <li><a href="#folder-item-12">子文件夹</a></li>
+			            </ol>
+			            </li>
+			          </ol>
+			        </li>
+			      <li><a href="#folder-item-13">子文件夹</a>
+			          <ol><ol>
+			              <li><a href="#folder-item-14">子文件夹</a></li>
+			              <li><a href="#folder-item-15">子文件夹</a></li>
+			          </ol></ol>
+			      </li>
+			      <li><a href="#folder-item-16">子文件夹</a></li>
+			      </ol>
+			    </li>
+			  </ol>
+			</div>
+
+  <div class="tags-panel">
+  	<p>Tags</p>
+  	<ul>
+  		<li class="tags"><a href="#">Data Warehouse</a></li>
+  		<li class="tags"><a href="#">sed</a></li>
+  		<li class="tags"><a href="#">awk</a></li>
+  		<li class="tags"><a href="#">etl</a></li>
+  		<li class="tags"><a href="#">Deep Learning</a></li>
+  		<li class="tags"><a href="#">Tools</a></li>
+  		<li class="tags"><a href="#">Mathematics</a></li>
+  		<li class="tags"><a href="#">Data Modeling</a></li>
+  		<li class="tags"><a href="#">SaaS</a></li>
+  		<li class="tags"><a href="#">FaaS</a></li>
+  		<li class="tags"><a href="#">PaaS</a></li>
+  		<li class="tags"><a href="#">DaaS</a></li>
+  		<li class="tags"><a href="#">Digital Marketing</a></li>
+  	</ul>
+  </div>
+			</div>
+			<div class="notes">
+				<p>Pages</p>
+				<ul>
+					<li><a>文件名1</a></li>
+					<li><a>文件名2</a></li>
+					<li><a>文件名3</a></li>
+					<li><a>文件名4</a></li>
+					<li><a>文件名5</a></li>
+					<li><a>文件名6</a></li>
+					<li><a>文件名7</a></li>
+					<li><a>文件名8</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="notepad">
+			<div class="editor">
+				<textarea id="md"></textarea>
+			</div>
+			<div class="render">
+				<div class="preview"></div>
+			</div>
+		</div>
+	</div>
+	<div class="tab-library">
+		<!-- Library Finder -->
+		<center>
+			<h2>library</h2>
+		</center>
+	</div>
+	<div class="tab-login">
+		<!-- OneNote Auth -->
+		<center>
+			<h2>Login</h2>
+		</center>
+	</div>
+	</div>
+</div>
+</body>
+<script  type="text/javascript">
+	//
+	$('.toolkit-collapse-item').click(function(){
+		var opt = $(this).text();
+		if(opt=='html' || opt=='markdown'){
+			//export files
+			return;
+		}else if(opt=='Multipanel'){
+			$('.sidebar').show();
+			$('.notepad').show();
+			$('.editor').show();
+			$('.render').show();
+			$('.notepad').css("marginLeft",402);  //.attr('margin-left','402px');
+			$('.editor').css({"width": "50%"});
+			$('.render').css({"width": "50%"});
+		}else if(opt=='Simple'){
+			$('.sidebar').hide();
+			$('.notepad').show();
+			$('.editor').show();
+			$('.render').show();
+			$('.notepad').css("marginLeft",0);
+			$('.editor').css({"width": "50%"});
+			$('.render').css({"width": "50%"});
+		}else if(opt=='Efficient'){
+			$('.sidebar').hide();
+			$('.render').hide();
+			$('.editor').show();
+			$('.notepad').css("marginLeft",0);
+			$('.editor').css({"width": "100%"});
+		}else if(opt=='Preview'){
+			$('.sidebar').hide();
+			$('.editor').hide();
+			$('.render').show();
+			$('.notepad').css("marginLeft",0);
+			$('.render').css({"width": "100%"});
+		}else{
+			return;
+		}
+	});
+	$('.vw-tabs').click(function(){
+		//Switch Views
+		var opt = $(this).text();
+		if(opt=='Library'){
+			$('#toolkit').hide();
+			$('.tab-library').show();
+			$('.tab-editor-preview').hide();
+			$('.tab-login').hide();
+		}else if(opt=='Editor'){
+			$('#toolkit').show();
+			$('.tab-library').hide();
+			$('.tab-editor-preview').show();
+			$('.tab-login').hide();
+		}else if(opt=='Login'){
+			$('#toolkit').hide();
+			$('.tab-library').hide();
+			$('.tab-editor-preview').hide();
+			$('.tab-login').show();
+		}
+	});
+	$('.toolkit-item toolkit-upload').click(function(){
+		//upload to OneDrive
+	});
+
+    // codemirror editor
+    var editor = CodeMirror.fromTextArea($("#md").get(0), {
+      mode: 'markdown',
+      lineNumbers: true,
+      autoCloseBrackets: true,
+      matchBrackets: true,
+      showCursorWhenSelecting: true,
+      lineWrapping: true,  // 长句子折行
+      theme: "default"
+    });
+    var cmSelector = document.getElementById("selector");
+    function selectTheme(){
+      var cmTheme = cmSelector.options[cmSelector.selectedIndex].textContent;
+      cmTheme = cmTheme=="Theme"?"default":cmTheme;
+      editor.setOption("theme", cmTheme);
+    }
+    editor.on('change', editorOnHandler);
+    function editorOnHandler(cm, co) {
+      $('.preview').html(marked(cm.getValue()));
+      $('.preview')[0].scrollTop = Math.round(cm.getCursor().line/cm.lineCount()*$('.preview')[0].scrollHeight);
+    }
+</script>
+</html>
