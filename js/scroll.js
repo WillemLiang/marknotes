@@ -17,7 +17,7 @@
   var txtEditor;    // 输入框
   var spPreview;    // 预览框
 
-  const HEADERS   = ':header';
+  const CM_HEADER = '.cm-header';
 
   function getInput() {
     return $('.CodeMirror-scroll');
@@ -27,7 +27,7 @@
     return $('.render');
   }
 
-  function scrollEvent(){
+  function scrollEvent(isHeaderScrolling){
     txtEditor = getInput()[0];
     spPreview = getPreview()[0];
 
@@ -46,7 +46,8 @@
           preFlag = false;
           return;
         }
-        txtEditor.scrollTop = Math.round((spPreview.scrollTop + spPreview.clientHeight) * txtEditor.scrollHeight  / spPreview.scrollHeight - txtEditor.clientHeight);
+        //txtEditor.scrollTop = Math.round((spPreview.scrollTop + spPreview.clientHeight) * txtEditor.scrollHeight  / spPreview.scrollHeight - txtEditor.clientHeight);
+        txtEditor.scrollTop = Math.round(spPreview.scrollTop * (txtEditor.scrollHeight-spPreview.clientHeight) / (spPreview.scrollHeight-txtEditor.clientHeight)  );
         return;
       }
       if(who == 'main'){
@@ -56,10 +57,8 @@
           preFlag = false;
           return;
         }
-        spPreview.scrollTop = Math.round((txtEditor.scrollTop + txtEditor.clientHeight) * spPreview.scrollHeight / txtEditor.scrollHeight - spPreview.clientHeight);
-        //if (txtEditor.scrollTop == 0) {
-        //    spPreview.scrollTop = 0;
-        //}
+        //spPreview.scrollTop = Math.round((txtEditor.scrollTop + txtEditor.clientHeight) * spPreview.scrollHeight / txtEditor.scrollHeight - spPreview.clientHeight* spPreview.scrollHeight / txtEditor.scrollHeight);
+        spPreview.scrollTop = Math.round(txtEditor.scrollTop * (spPreview.scrollHeight-txtEditor.clientHeight) / (txtEditor.scrollHeight-spPreview.clientHeight) );
         return;
       }
     }
@@ -73,12 +72,28 @@
     }
 
     getInput().on('scroll', () => mainOnscroll());
-    getPreview().on('scroll', () => preOnscroll());
+    if(!isHeaderScrolling){
+      getPreview().on('scroll', () => preOnscroll());
+    }
+  }
+
+  function scrollToHeader(){
+    var header_text = $(this).text().replace(/ +$/g,'').replace(/^[#]+ /g,'');
+    var pre_head_pattern = ':header:contains("' + header_text + '")';
+    var topOffset = getPreview()[0].scrollTop + $(pre_head_pattern).offset().top - $(pre_head_pattern).height() - parseInt($(pre_head_pattern).css('marginTop'));
+    getPreview().animate({
+      scrollTop: topOffset + "px"
+      }, {
+      duration: 300,
+      easing: "swing"  //"linear"
+    });
+    return true;
   }
 
   function cycle() {
-    scrollEvent();
-    $(HEADERS).on('click', scrollEvent);
+    var isHeaderScrolling = false;
+    isHeaderScrolling = $(CM_HEADER).on('click', scrollToHeader);
+    scrollEvent(isHeaderScrolling);
     window.setTimeout(cycle, 1000);
   }
 
