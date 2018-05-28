@@ -27,7 +27,7 @@
     return $('.render');
   }
 
-  function scrollEvent(isHeaderScrolling){
+  function scrollEvent(){
     txtEditor = getInput()[0];
     spPreview = getPreview()[0];
 
@@ -35,46 +35,12 @@
       return;
     }
 
-    let edtFlag = false; // 抵消两个滚动事件之间互相触发
-    let preFlag = false; // 如果两个 flag 都为 true，证明是反弹过来的事件引起的
-
-    function scrolling(who){
-      if(who == 'pre'){
-        preFlag = true;
-        if (edtFlag === true){ // 抵消两个滚动事件之间互相触发
-          edtFlag = false;
-          preFlag = false;
-          return;
-        }
-        //txtEditor.scrollTop = Math.round((spPreview.scrollTop + spPreview.clientHeight) * txtEditor.scrollHeight  / spPreview.scrollHeight - txtEditor.clientHeight);
-        txtEditor.scrollTop = Math.round(spPreview.scrollTop * (txtEditor.scrollHeight-spPreview.clientHeight) / (spPreview.scrollHeight-txtEditor.clientHeight)  );
-        return;
-      }
-      if(who == 'main'){
-        edtFlag = true;
-        if (preFlag === true){ // 抵消两个滚动事件之间互相触发
-          edtFlag = false;
-          preFlag = false;
-          return;
-        }
+    function scrolling(){
         //spPreview.scrollTop = Math.round((txtEditor.scrollTop + txtEditor.clientHeight) * spPreview.scrollHeight / txtEditor.scrollHeight - spPreview.clientHeight* spPreview.scrollHeight / txtEditor.scrollHeight);
         spPreview.scrollTop = Math.round(txtEditor.scrollTop * (spPreview.scrollHeight-txtEditor.clientHeight) / (txtEditor.scrollHeight-spPreview.clientHeight) );
-        return;
-      }
     }
 
-    function mainOnscroll(){
-      scrolling('main');
-    }
-
-    function preOnscroll(){
-      scrolling('pre');
-    }
-
-    getInput().on('scroll', () => mainOnscroll());
-    if(!isHeaderScrolling){
-      getPreview().on('scroll', () => preOnscroll());
-    }
+    getInput().on('scroll', () => scrolling());
   }
 
   function scrollToHeader(){
@@ -82,18 +48,16 @@
     var pre_head_pattern = ':header:contains("' + header_text + '")';
     var topOffset = getPreview()[0].scrollTop + $(pre_head_pattern).offset().top - $(pre_head_pattern).height() - parseInt($(pre_head_pattern).css('marginTop'));
     getPreview().animate({
-      scrollTop: topOffset + "px"
-      }, {
-      duration: 300,
-      easing: "swing"  //"linear"
-    });
-    return true;
+          scrollTop: topOffset + "px"
+          }, {
+          duration: 300,
+          easing: "swing"  //"linear"
+        });
   }
 
   function cycle() {
-    var isHeaderScrolling = false;
-    isHeaderScrolling = $(CM_HEADER).on('click', scrollToHeader);
-    scrollEvent(isHeaderScrolling);
+    scrollEvent();
+    $(CM_HEADER).on('click', scrollToHeader);
     window.setTimeout(cycle, 1000);
   }
 

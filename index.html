@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/preview.css">
 	<link rel="stylesheet" href="plugins/codemirror/lib/codemirror.css">
+	<link rel="stylesheet" href="plugins/codemirror/addon/scroll/simplescrollbars.css">
 	<link rel="stylesheet" href="plugins/codemirror/theme/3024-day.css">
 	<link rel="stylesheet" href="plugins/codemirror/theme/3024-night.css">
 	<link rel="stylesheet" href="plugins/codemirror/theme/abcdef.css">
@@ -67,6 +68,7 @@
 	<script src="js/scroll.js"></script>
 	<!--CodeMirror-->
 	<script type="text/javascript" src="plugins/codemirror/lib/codemirror.js"></script>
+	<script type="text/javascript" src="plugins/codemirror/addon/scroll/simplescrollbars.js"></script>
 	<script type="text/javascript" src="plugins/codemirror/mode/markdown/markdown.js"></script>
 </head>
 <body>
@@ -183,64 +185,71 @@
 		<div class="sidebar">
 			<div class="folder">
 			  <div class="folder-treeview">
-			  <p>Library</p>
-			  <ol class="folder-item">
-			    <li>
-			      <a href="#folder-item-1">文件夹</a>
-			      <ol>
-			        <li><a href="#folder-item-2">子文件夹</a></li>
-			        <li><a href="#folder-item-3">子文件夹</a></li>
-			        <li><a href="#folder-item-4">子文件夹</a></li>
-			        <li><a href="#folder-item-5">子文件夹</a>
-			          <ol>
-			            <li><a href="#folder-item-6">子文件夹</a></li>
-			            <li><a href="#folder-item-7">子文件夹</a></li>
-			          </ol>
-			        </li>
-			        <li><a href="#folder-item-8">子文件夹</a>
-			          <ol>
-			            <li><a href="#folder-item-9">子文件夹</a></li>
-			            <li><a href="#folder-item-10">子文件夹</a>
-			            <ol>
-			              <li><a href="#folder-item-11">子文件夹</a></li>
-			              <li><a href="#folder-item-12">子文件夹</a></li>
-			            </ol>
-			            </li>
-			          </ol>
-			        </li>
-			      <li><a href="#folder-item-13">子文件夹</a>
-			          <ol><ol>
-			              <li><a href="#folder-item-14">子文件夹</a></li>
-			              <li><a href="#folder-item-15">子文件夹</a></li>
-			          </ol></ol>
-			      </li>
-			      <li><a href="#folder-item-16">子文件夹</a></li>
-			      </ol>
-			    </li>
-			  </ol>
+			  <div class="panel-title">
+			  	<p>Library</p>
+			  </div>
+			  <div class="folder-treeview-item">
+				  <ol class="folder-item">
+				    <li>
+				      <a href="#folder-item-1">文件夹</a>
+				      <ol>
+				        <li><a href="#folder-item-2">子文件夹</a></li>
+				        <li><a href="#folder-item-3">子文件夹</a></li>
+				        <li><a href="#folder-item-4">子文件夹</a></li>
+				        <li><a href="#folder-item-5">子文件夹</a>
+				          <ol>
+				            <li><a href="#folder-item-6">子文件夹</a></li>
+				            <li><a href="#folder-item-7">子文件夹</a></li>
+				          </ol>
+				        </li>
+				        <li><a href="#folder-item-8">子文件夹</a>
+				          <ol>
+				            <li><a href="#folder-item-9">子文件夹</a></li>
+				            <li><a href="#folder-item-10">子文件夹</a>
+				            <ol>
+				              <li><a href="#folder-item-11">子文件夹</a></li>
+				              <li><a href="#folder-item-12">子文件夹</a></li>
+				            </ol>
+				            </li>
+				          </ol>
+				        </li>
+				      <li><a href="#folder-item-13">子文件夹</a>
+				          <ol><ol>
+				              <li><a href="#folder-item-14">子文件夹</a></li>
+				              <li><a href="#folder-item-15">子文件夹</a></li>
+				          </ol></ol>
+				      </li>
+				      <li><a href="#folder-item-16">子文件夹</a></li>
+				      </ol>
+				    </li>
+				  </ol>
+			  </div>
 			</div>
 
   <div class="tags-panel">
   	<p>Tags</p>
+  	<div class="tags-item">
   	<ul>
-  		<li class="tags"><a href="#">Data Warehouse</a></li>
-  		<li class="tags"><a href="#">sed</a></li>
-  		<li class="tags"><a href="#">awk</a></li>
-  		<li class="tags"><a href="#">etl</a></li>
-  		<li class="tags"><a href="#">Deep Learning</a></li>
-  		<li class="tags"><a href="#">Tools</a></li>
-  		<li class="tags"><a href="#">Mathematics</a></li>
-  		<li class="tags"><a href="#">Data Modeling</a></li>
-  		<li class="tags"><a href="#">SaaS</a></li>
-  		<li class="tags"><a href="#">FaaS</a></li>
-  		<li class="tags"><a href="#">PaaS</a></li>
-  		<li class="tags"><a href="#">DaaS</a></li>
-  		<li class="tags"><a href="#">Digital Marketing</a></li>
+  		<li class="tags"><a href="javascript:void(0)">Data Warehouse</a></li>
+  		<li class="tags"><a href="javascript:void(0)">sed</a></li>
+  		<li class="tags"><a href="javascript:void(0)">awk</a></li>
+  		<li class="tags"><a href="javascript:void(0)">etl</a></li>
+  		<li class="tags"><a href="javascript:void(0)">Deep Learning</a></li>
+  		<li class="tags"><a href="javascript:void(0)">Tools</a></li>
+  		<li class="tags"><a href="javascript:void(0)">Mathematics</a></li>
+  		<li class="tags"><a href="javascript:void(0)">Data Modeling</a></li>
+  		<li class="tags"><a href="javascript:void(0)">SaaS</a></li>
+  		<li class="tags"><a href="javascript:void(0)">FaaS</a></li>
+  		<li class="tags"><a href="javascript:void(0)">PaaS</a></li>
+  		<li class="tags"><a href="javascript:void(0)">DaaS</a></li>
+  		<li class="tags"><a href="javascript:void(0)">Digital Marketing</a></li>
   	</ul>
+  	</div>
   </div>
 			</div>
 			<div class="notes">
 				<p>Pages</p>
+				<div class="notes-item">
 				<ul>
 					<li><a>文件名1</a></li>
 					<li><a>文件名2</a></li>
@@ -251,6 +260,7 @@
 					<li><a>文件名7</a></li>
 					<li><a>文件名8</a></li>
 				</ul>
+				</div>
 			</div>
 		</div>
 		<div class="notepad">
@@ -278,6 +288,8 @@
 </div>
 </body>
 <script  type="text/javascript">
+	//$('li:even').css('background-color','#ccc')
+	//$("li:even").addClass("alter-item");
 	//
 	$('.toolkit-collapse-item').click(function(){
 		var opt = $(this).text();
@@ -348,7 +360,8 @@
       matchBrackets: true,
       showCursorWhenSelecting: true,
       lineWrapping: true,  // 长句子折行
-      theme: "default"
+      theme: "default",
+      scrollbarStyle:"simple"
     });
     var cmSelector = document.getElementById("selector");
     function selectTheme(){

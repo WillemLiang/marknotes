@@ -166,6 +166,7 @@ body{
 	border-radius: 6px;
 	background-color: #fff;
 	z-index: 1000;
+	margin-left: -20px;
 }
 .toolkit-collapse-items{
 	list-style: none;
@@ -190,6 +191,12 @@ body{
 .tab-login{
 	display:none;
 }
+.panel-title{
+	background-color: #f5f5f5;
+	width: 197px;
+	height: 60px;
+	position: absolute;
+}
 .sidebar, .notepad{
 	height: 100%;
 }
@@ -205,9 +212,11 @@ body{
 	height: 100%;
 }
 .folder-treeview {
-	overflow: auto;
 	height: 75%;
 	margin-right:2px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: relative;
 }
 .folder-treeview p{
 	background-image: url(../img/libraries.svg);
@@ -216,11 +225,23 @@ body{
 	background-size: 20px;
 	padding-left: 28px;
 	color: #555555;
+	position: absolute;
+	padding-top: 20px;
+	height: 40px;
+	margin: 0;
 }
-.folder-item {padding: 2px 10px;margin: 0;font-size: 10pt;}
+.folder-treeview-item{
+	background-image:url(../img/background.svg);
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+	top: 60px;
+}
+.folder-item {padding: 0;margin: 0;font-size: 10pt;line-height: 20px;}
 .folder-item li{list-style:none;}
-.folder-item a{text-decoration: none;color:grey;}
-.folder-item a:hover{color:red;font-weight:bold;}
+.folder-item>li{padding-left:10px;}
+.folder-item a{text-decoration: none;color:#555;}
+.folder-item a:hover{color:#333;font-weight:bold;}
 .folder-item li ol {padding-left:1em;counter-reset:folder-item;}
 /*.folder-item ol li:before {counter-increment:folder-item;content:counters(folder-item,".")". ";color:grey;}*/
 .tags-panel{
@@ -238,7 +259,7 @@ body{
 	padding-left: 28px;
 	color: #555555;
 }
-.tags-panel ul{
+.tags-item ul{
 	padding: 2px 10px;
 	margin: 0px 2px 10px 0px;
 	overflow-y: auto;
@@ -246,7 +267,7 @@ body{
 }
 .tags{
 	list-style:none;
-	background-color: #ccc;
+	background-color: #dfdfdf;
 	float: left;
 	border: 1px solid #999;
 	border-radius: 10px;
@@ -267,15 +288,21 @@ body{
 	padding-left: 28px;
 	color: #555555;
 }
-.notes > ul{
-	padding: 2px 10px;
+.notes-item > ul{
+	line-height: 20px;
+	padding: 10px 0px;
 	margin: 0;
 }
-.notes > ul > li{
-	list-style:none;
+.notes-item > ul > li{
+	padding: 0px 10px;
+	list-style: none;
 	font-size: 10pt;
+	color: #555;
 }
-
+.notes-item > ul > li:hover {
+	background-color: #dfdfdf;
+	color: blue;
+}
 .notepad{
 	margin-left: 402px;
 	right: 0;
@@ -304,7 +331,7 @@ body{
 	padding-left: 8px;
 }
 /*定义滚动条轨道 内阴影+圆角*/
-.editor textarea::-webkit-scrollbar-track
+.CodeMirror-vscrollbar ::-webkit-scrollbar-track
 {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px;
@@ -312,7 +339,7 @@ body{
 }
 
 /*定义滑块 内阴影+圆角*/
-.editor textarea::-webkit-scrollbar-thumb
+.CodeMirror-vscrollbar ::-webkit-scrollbar-thumb
 {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
