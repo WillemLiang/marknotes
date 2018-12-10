@@ -64,12 +64,92 @@
 	<link rel="stylesheet" href="plugins/codemirror/theme/zenburn.css">
 	<!--Base-->
 	<script src="js/jquery.min.js"></script>
-	<script src="js/marked.js"></script>
+	<script src="js/jQuery.print.min.js"></script>
+	<script src="js/FileSaver.min.js"></script>
+	<script src="js/marked.min.js"></script>
 	<script src="js/scroll.js"></script>
 	<!--CodeMirror-->
 	<script type="text/javascript" src="plugins/codemirror/lib/codemirror.js"></script>
 	<script type="text/javascript" src="plugins/codemirror/addon/scroll/simplescrollbars.js"></script>
 	<script type="text/javascript" src="plugins/codemirror/mode/markdown/markdown.js"></script>
+	<!--SyntaxHighlighter--> <!--http://jmrware.com/articles/2011/sh-bug/SyntaxHighlighterBug.html-->
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shCore.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shAutoloader.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushAS3.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushAppleScript.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushBash.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushCSharp.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushColdFusion.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushCpp.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushCss.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushDelphi.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushDiff.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushErlang.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushGroovy.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushJScript.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushJava.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushJavaFX.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushPerl.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushPhp.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushPlain.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushPowerShell.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushPython.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushRuby.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushSass.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushScala.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushSql.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushVb.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shBrushXml.min.js"></script>
+	<script type="text/javascript" src="plugins/syntaxhighlighter/scripts/shLegacy.min.js"></script>
+	<link href="plugins/syntaxhighlighter/styles/shCoreDefault.min.css" rel="stylesheet">
+	<link href="plugins/syntaxhighlighter/styles/shThemeDefault.min.css" rel="stylesheet">
+	<!--flowchart-->
+	<script type="text/javascript" src="plugins/raphael/raphael.min.js"></script>	<!-- 流程图插件依赖 -->
+	<script type="text/javascript" src="plugins/flowchart/flowchart.min.js"></script>
+	<!--sequence-diagram-->
+	<script type="text/javascript" src="plugins/webfont/webfontloader.js"></script>		<!-- 时序图插件依赖 -->
+	<script type="text/javascript" src="plugins/snap_svg/snap.svg-min.js"></script>		<!-- 时序图插件依赖 -->
+	<script type="text/javascript" src="plugins/underscore/underscore-min.js"></script>	<!-- 时序图插件依赖 -->
+	<script type="text/javascript" src="plugins/sequence-diagram/sequence-diagram-min.js"></script>
+	<!--MathJax-->
+	<!-- <script type="text/javascript" src="plugins/mathjax/MathJaxTeX-MML-AM_HTMLorMML.js"></script> -->
+	<!--<script type="text/javascript" src="plugins/mathjax/MathJax.js"></script>-->
+	<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js"></script>
+	<!--mermaid-->
+	<script type="text/javascript" src="plugins/mermaid/mermaid.min.js"></script>
+	<!-- dot-->
+	<!--<script src="https://d3js.org/d3.v4.min.js"></script>-->
+	<!--<script src="https://unpkg.com/viz.js@1.8.0/viz.js" type="javascript/worker"></script>-->
+	<!--<script src="https://unpkg.com/d3-graphviz@1.3.1/build/d3-graphviz.min.js"></script>-->
+	<script src="plugins/graphviz/viz.js"></script>    <!-- http://www.webgraphviz.com/ -->
+	<!-- oneDrive-->
+	<script type="text/javascript" src="https://js.live.net/v7.0/OneDrive.js"></script>
+	<script src="js/oneDrive.js"></script>
+
+<script>
+// type="text/x-mathjax-config">
+
+//var mathId = document.getElementsByClassName("preview"); //选择公式识别范围
+MathJax.Hub.Config({
+	showProcessingMessages: false, //关闭js加载过程信息
+	messageStyle: "none", //不显示信息
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ], //行内公式选择符
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ], //段内公式选择符
+		processEscapes: true, //
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'] //避开某些标签
+	},
+	"HTML-CSS": {
+		availableFonts: ["STIX","TeX"], //可选字体
+		showMathMenu: false //关闭右击菜单显示
+	}
+});
+//MathJax.Hub.Queue(["Typeset",MathJax.Hub,mathId]);
+
+</script>
+<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
 </head>
 <body>
 <div class="container">
@@ -170,8 +250,9 @@
 					<li class="toolkit-item toolkit-export"><a>export</a>
 						<span class="toolkit-export-item">
 							<ul class="toolkit-collapse-items">
-								<li class="toolkit-collapse-item"><a href="javascript:void(0)">markdown</a></li>
 								<li class="toolkit-collapse-item"><a href="javascript:void(0)">html</a></li>
+								<li class="toolkit-collapse-item"><a href="javascript:void(0)">markdown</a></li>
+								<li class="toolkit-collapse-item"><a href="javascript:void(0)">pdf</a></li>
 							</ul>
 						</span>
 					</li>
@@ -184,71 +265,77 @@
 	<div class="tab-editor-preview">
 		<div class="sidebar">
 			<div class="folder">
-			  <div class="folder-treeview">
-			  <div class="panel-title">
-			  	<p>Library</p>
-			  </div>
-			  <div class="folder-treeview-item">
-				  <ol class="folder-item">
-				    <li>
-				      <a href="#folder-item-1">文件夹</a>
-				      <ol>
-				        <li><a href="#folder-item-2">子文件夹</a></li>
-				        <li><a href="#folder-item-3">子文件夹</a></li>
-				        <li><a href="#folder-item-4">子文件夹</a></li>
-				        <li><a href="#folder-item-5">子文件夹</a>
-				          <ol>
-				            <li><a href="#folder-item-6">子文件夹</a></li>
-				            <li><a href="#folder-item-7">子文件夹</a></li>
-				          </ol>
-				        </li>
-				        <li><a href="#folder-item-8">子文件夹</a>
-				          <ol>
-				            <li><a href="#folder-item-9">子文件夹</a></li>
-				            <li><a href="#folder-item-10">子文件夹</a>
-				            <ol>
-				              <li><a href="#folder-item-11">子文件夹</a></li>
-				              <li><a href="#folder-item-12">子文件夹</a></li>
-				            </ol>
-				            </li>
-				          </ol>
-				        </li>
-				      <li><a href="#folder-item-13">子文件夹</a>
-				          <ol><ol>
-				              <li><a href="#folder-item-14">子文件夹</a></li>
-				              <li><a href="#folder-item-15">子文件夹</a></li>
-				          </ol></ol>
-				      </li>
-				      <li><a href="#folder-item-16">子文件夹</a></li>
-				      </ol>
-				    </li>
-				  </ol>
-			  </div>
-			</div>
+				<div class="folder-treeview">
+					<div class="panel-title">
+						<p>Library</p>
+					</div>
+					<div class="folder-treeview-item">
+						<ol class="folder-item">
+							<li>
+								<a href="#folder-item-1">文件夹</a>
+								<ol>
+									<li><a href="#folder-item-2">子文件夹</a></li>
+									<li><a href="#folder-item-3">子文件夹</a></li>
+									<li><a href="#folder-item-4">子文件夹</a></li>
+									<li><a href="#folder-item-5">子文件夹</a>
+										<ol>
+											<li><a href="#folder-item-6">子文件夹</a></li>
+											<li><a href="#folder-item-7">子文件夹</a></li>
+										</ol>
+									</li>
+									<li><a href="#folder-item-8">子文件夹</a>
+										<ol>
+											<li><a href="#folder-item-9">子文件夹</a></li>
+											<li><a href="#folder-item-10">子文件夹</a>
+												<ol>
+													<li><a href="#folder-item-11">子文件夹</a></li>
+													<li><a href="#folder-item-12">子文件夹</a></li>
+												</ol>
+											</li>
+										</ol>
+									</li>
+									<li><a href="#folder-item-13">子文件夹</a>
+										<ol>
+											<ol>
+												<li><a href="#folder-item-14">子文件夹</a></li>
+												<li><a href="#folder-item-15">子文件夹</a></li>
+											</ol>
+										</ol>
+									</li>
+									<li><a href="#folder-item-16">子文件夹</a></li>
+								</ol>
+							</li>
+						</ol>
+					</div>
+				</div>
 
-  <div class="tags-panel">
-  	<p>Tags</p>
-  	<div class="tags-item">
-  	<ul>
-  		<li class="tags"><a href="javascript:void(0)">Data Warehouse</a></li>
-  		<li class="tags"><a href="javascript:void(0)">sed</a></li>
-  		<li class="tags"><a href="javascript:void(0)">awk</a></li>
-  		<li class="tags"><a href="javascript:void(0)">etl</a></li>
-  		<li class="tags"><a href="javascript:void(0)">Deep Learning</a></li>
-  		<li class="tags"><a href="javascript:void(0)">Tools</a></li>
-  		<li class="tags"><a href="javascript:void(0)">Mathematics</a></li>
-  		<li class="tags"><a href="javascript:void(0)">Data Modeling</a></li>
-  		<li class="tags"><a href="javascript:void(0)">SaaS</a></li>
-  		<li class="tags"><a href="javascript:void(0)">FaaS</a></li>
-  		<li class="tags"><a href="javascript:void(0)">PaaS</a></li>
-  		<li class="tags"><a href="javascript:void(0)">DaaS</a></li>
-  		<li class="tags"><a href="javascript:void(0)">Digital Marketing</a></li>
-  	</ul>
-  	</div>
-  </div>
+				<div class="tags-panel">
+					<div class="panel-title">
+						<p>Tags</p>
+					</div>
+					<div class="tags-item">
+					<ul>
+						<li class="tags"><a href="javascript:void(0)">Data Warehouse</a></li>
+						<li class="tags"><a href="javascript:void(0)">sed</a></li>
+						<li class="tags"><a href="javascript:void(0)">awk</a></li>
+						<li class="tags"><a href="javascript:void(0)">etl</a></li>
+						<li class="tags"><a href="javascript:void(0)">Deep Learning</a></li>
+						<li class="tags"><a href="javascript:void(0)">Tools</a></li>
+						<li class="tags"><a href="javascript:void(0)">Mathematics</a></li>
+						<li class="tags"><a href="javascript:void(0)">Data Modeling</a></li>
+						<li class="tags"><a href="javascript:void(0)">SaaS</a></li>
+						<li class="tags"><a href="javascript:void(0)">FaaS</a></li>
+						<li class="tags"><a href="javascript:void(0)">PaaS</a></li>
+						<li class="tags"><a href="javascript:void(0)">DaaS</a></li>
+						<li class="tags"><a href="javascript:void(0)">Digital Marketing</a></li>
+					</ul>
+					</div>
+				</div>
 			</div>
 			<div class="notes">
-				<p>Pages</p>
+				<div class="panel-title">
+					<p>Pages</p>
+				</div>
 				<div class="notes-item">
 				<ul>
 					<li><a>文件名1</a></li>
@@ -288,44 +375,185 @@
 </div>
 </body>
 <script  type="text/javascript">
+	var MarkNotesRenderer = function(){ //创建一个对象
+		this.instance = null;
+		var renderer = new marked.Renderer();
+		var graph_id = 0;
+		renderer.heading = function(text, level) {
+			return `<h${level} id="${text}">${text}</h${level}>`;
+		}
+		renderer.table = function (header, body) {
+			return '<figure style="overflow-x: auto;">\n'
+				+ '<table class="table table-bordered table-striped">\n'
+				+ '<thead class="thead-light">\n'
+				+ header
+				+ '</thead>\n'
+				+ body
+				+ '</table>\n</figure>';
+				}
+		renderer.blockquote = function (quote) {
+			return '<blockquote>\n'
+				+ quote.trim(/\n/).replace(/\n/g,'<br>')
+				+ '</blockquote>\n';
+		}
+		renderer.code = function(code, lang, escaped) {
+			if (!lang) {
+				return '<pre><code>'
+					+ (escaped ? code : escape(code, true))
+					+ '</code></pre>';
+			}
+			var brush = {
+				Perl:"Perl", actionscript3:"AS3", applescript:"AppleScript",
+				as3:"AS3", bash:"Bash", c:"Cpp", 'c#':"CSharp", 'c-sharp':"CSharp",
+				cf:"ColdFusion", coldfusion:"ColdFusion", cpp:"Cpp",
+				csharp:"CSharp",css:"CSS", delphi:"Delphi", diff:"Diff",
+				erl:"Erland", erlang:"Erland",groovy:"Groovy", html:"Xml",
+				java:"Java", javafx:"JavaFX", javascript:"JScript", jfx:"JavaFX",
+				js:"JScript", jscript:"JScript", pas:"Delphi", pascal:"Delphi",
+				patch:"Diff", perl:"Perl", php:"Php", pl:"Perl", plain:"Plain",
+				powershell:"PowerShell", ps:"PowerShell", py:"Python",
+				python:"Python", rails:"Ruby", rb:"Ruby", ror:"Ruby", ruby:"Ruby",
+				sass:"Sass", scala:"Scala", scss:"Sass", shell:"Bash", sql:"Sql",
+				text:"Plain", vb:"Vb", vbnet:"Vb", xhtml:"Xml", xml:"Xml",
+				xslt:"Xml"
+			}
+			//if(SyntaxHighlighter.vars.discoveredBrushes[lang]){
+			if(Object.keys(brush).includes(lang)){
+				return '<pre class="'
+						+ this.options.langPrefix
+						+ escape(lang, true)
+						+ '">\n'
+						+ code	//(escaped ? code : escape(code, true))
+						+ '</pre>\n';
+			}
+			var getGraphId=function(){
+				graph_id+=1;
+				return graph_id;
+			}
+			//if the code is not the literal code
+			switch(lang){
+				case 'dot':     //DOT https://en.wikipedia.org/wiki/DOT_(graph_description_language)
+					return '<div class="dot-graphviz">\n'
+						+ Viz(code, "svg")
+						+ '</div>';
+					break;
+				case 'flow':
+					return '<div class="flowchart">\n'
+						+ code
+						+ '</div>';
+					break;
+				case 'gantt':
+					return '<div class="mermaid-graph">\n'
+						+ mermaid.mermaidAPI.render('mermaid-graph-'+getGraphId(),code)
+						+ '</div>';
+					break;
+				case 'graph':
+					return '<div class="mermaid-graph">\n'
+						+ mermaid.mermaidAPI.render('mermaid-graph-'+getGraphId(),code)
+						+ '</div>';
+				case 'mermaid':
+					return '<div class="mermaid-graph">\n'
+						+ mermaid.mermaidAPI.render('mermaid-graph-'+getGraphId(),code)
+						+ '</div>';
+				case 'sequence':
+					return '<div class="sequence-diagram">\n'
+						+ code
+						+ '</div>';
+				default:	//no item matchs then set plain text by default
+					return '<pre class="'
+						+ this.options.langPrefix
+						+ 'text'
+						+ '">\n'
+						+ code
+						+ '</pre>\n';
+			}
+		}
+		renderer.latex= function (latex) {
+			return '<p class="latex">'+latex+'<p>';
+		}
+		return renderer;
+	};
+	MarkNotesRenderer.getInstance = function(){
+		if(!this.instance){
+			this.instance = new MarkNotesRenderer();
+		}
+		return this.instance;
+	};
 	//$('li:even').css('background-color','#ccc')
 	//$("li:even").addClass("alter-item");
 	//
+
 	$('.toolkit-collapse-item').click(function(){
 		var opt = $(this).text();
-		if(opt=='html' || opt=='markdown'){
-			//export files
-			return;
-		}else if(opt=='Multipanel'){
-			$('.sidebar').show();
-			$('.notepad').show();
-			$('.editor').show();
-			$('.render').show();
-			$('.notepad').css("marginLeft",402);  //.attr('margin-left','402px');
-			$('.editor').css({"width": "50%"});
-			$('.render').css({"width": "50%"});
-		}else if(opt=='Simple'){
-			$('.sidebar').hide();
-			$('.notepad').show();
-			$('.editor').show();
-			$('.render').show();
-			$('.notepad').css("marginLeft",0);
-			$('.editor').css({"width": "50%"});
-			$('.render').css({"width": "50%"});
-		}else if(opt=='Efficient'){
-			$('.sidebar').hide();
-			$('.render').hide();
-			$('.editor').show();
-			$('.notepad').css("marginLeft",0);
-			$('.editor').css({"width": "100%"});
-		}else if(opt=='Preview'){
-			$('.sidebar').hide();
-			$('.editor').hide();
-			$('.render').show();
-			$('.notepad').css("marginLeft",0);
-			$('.render').css({"width": "100%"});
-		}else{
-			return;
+		switch(opt){
+			case 'html':    //export HTML
+				//var style = 'body{' + window.getComputedStyle(document.getElementsByClassName('preview')[0]).cssText + '}';
+				var body = $('.preview').html();
+				var data = '<html>\n<head>\n<style>'
+					//+ style
+					+ 'body {background-color: #f5f5f5 !important;}\n'
+					+ '.page {margin: 0 auto;WIDTH: 65%;min-width: 800px;background-color: #fff;padding:50px 30px;margin-top: 50px;margin-bottom: 50px;box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);}\n'
+					+ '.page svg{height:auto;margin: 0 auto;display: flex;}\n'
+					+ '.toolbar{display: none;}\n'
+					+ '.MathJax{outline:0;}\n.MathJax_Display{overflow-x:auto;overflow-y:hidden;}\n'
+					+ '</style>\n'
+					+ '<link href="https://cdn.bootcss.com/twitter-bootstrap/2.2.2/css/bootstrap.min.css" rel="stylesheet">\n'
+					+ '<link href="https://cdn.bootcss.com/SyntaxHighlighter/3.0.83/styles/shCore.min.css" rel="stylesheet">\n'
+					+ '<link href="https://cdn.bootcss.com/SyntaxHighlighter/3.0.83/styles/shThemeDefault.min.css" rel="stylesheet">\n'
+					+ '</head>\n<body>\n<div class="page">'
+					+ body
+					+ '</div>\n</body>\n</html>';
+				var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
+				var title = $('.preview').children('h1').first().text();
+				title=(title==""?$('.preview').children().first().text():title);
+				saveAs(blob, title+".html");
+				break;
+			case 'markdown':    //export raw markdown
+				var data = editor.getValue();
+				var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
+				var title = $('.preview').children('h1').first().text();
+				title=(title==""?$('.preview').children().first().text():title)
+				saveAs(blob, title+".md");
+				break;
+			case 'pdf':    //jQuery.print
+				$('.preview').print();
+			case 'Multipanel':
+				$('.sidebar').show();
+				$('.notepad').show();
+				$('.editor').show();
+				$('.render').show();
+				$('.notepad').css("marginLeft",402);  //.attr('margin-left','402px');
+				$('.editor').css({"width": "50%"});
+				$('.render').css({"width": "50%", "background-color":"#fff"});
+				$('.preview').css({"width":"100%", "padding":"0px 8px","margin":"0", "box-shadow":"unset"});
+				break;
+			case 'Simple':
+				$('.sidebar').hide();
+				$('.notepad').show();
+				$('.editor').show();
+				$('.render').show();
+				$('.notepad').css("marginLeft",0);
+				$('.editor').css({"width": "50%"});
+				$('.render').css({"width": "50%", "background-color":"#fff"});
+				$('.preview').css({"width":"100%", "padding":"0px 8px","margin":"0", "box-shadow":"unset"});
+				break;
+			case 'Efficient':
+				$('.sidebar').hide();
+				$('.render').hide();
+				$('.editor').show();
+				$('.notepad').css("marginLeft",0);
+				$('.editor').css({"width": "100%"});
+				break;
+			case 'Preview':
+				$('.sidebar').hide();
+				$('.editor').hide();
+				$('.render').show();
+				$('.notepad').css("marginLeft",0);
+				$('.render').css({"width":"100%", "background-color":"#f5f5f5"});
+				$('.preview').css({"margin":"0 auto","width":"65%", "min-width":"800px", "background-color":"#fff", "padding":"50px 30px", "margin-top":"50px", "margin-bottom":"50px", "box-shadow":"0 2px 6px rgba(100, 100, 100, 0.3)"});
+				break;
+			default:
+				return;
 		}
 	});
 	$('.vw-tabs').click(function(){
@@ -348,31 +576,108 @@
 			$('.tab-login').show();
 		}
 	});
-	$('.toolkit-item toolkit-upload').click(function(){
+	$('.toolkit-upload').click(function(){
 		//upload to OneDrive
+		var odOptions = {
+			clientId: "96f900b4-9191-4bea-bcba-d6d5b57be261",
+			action: "download",    //share | download | query
+			multiSelect: false,
+			openInNewWindow: true,
+			advanced: {},
+			success: function(file) { /* success handler */
+				$.ajax(file.value[0]["@microsoft.graph.downloadUrl"], {
+					success: function (data, status, xhr) {
+						// load the file into the editor
+						editor.setValue(xhr.responseText);
+						//editor.setFilename(fileItem.name);
+						//$("#canvas").attr("disabled", false);
+						//editor.openFileID = fileItem.id;
+					},
+					error: function(xhr, status, err) {
+						console.error(err);
+					}
+				});
+			},
+			cancel: function() { /* cancel handler */ },
+			error: function(e) { /* error handler */ }
+		}
+		//var odOptions = { /* ... specify the desired options ... */ };
+		OneDrive.open(odOptions);
 	});
 
-    // codemirror editor
-    var editor = CodeMirror.fromTextArea($("#md").get(0), {
-      mode: 'markdown',
-      lineNumbers: true,
-      autoCloseBrackets: true,
-      matchBrackets: true,
-      showCursorWhenSelecting: true,
-      lineWrapping: true,  // 长句子折行
-      theme: "default",
-      scrollbarStyle:"simple"
-    });
-    var cmSelector = document.getElementById("selector");
-    function selectTheme(){
-      var cmTheme = cmSelector.options[cmSelector.selectedIndex].textContent;
-      cmTheme = cmTheme=="Theme"?"default":cmTheme;
-      editor.setOption("theme", cmTheme);
-    }
-    editor.on('change', editorOnHandler);
-    function editorOnHandler(cm, co) {
-      $('.preview').html(marked(cm.getValue()));
-      $('.preview')[0].scrollTop = Math.round(cm.getCursor().line/cm.lineCount()*$('.preview')[0].scrollHeight);
-    }
+
+	// codemirror editor
+	var editor = CodeMirror.fromTextArea($("#md").get(0), {
+		mode: 'markdown',
+		lineNumbers: true,
+		autoCloseBrackets: true,
+		matchBrackets: true,
+		showCursorWhenSelecting: true,
+		lineWrapping: true,  // 长句子折行
+		theme: "default",
+		scrollbarStyle:"simple"
+	});
+	var cmSelector = document.getElementById("selector");
+	function selectTheme(){
+		var cmTheme = cmSelector.options[cmSelector.selectedIndex].textContent;
+		cmTheme = cmTheme=="Theme"?"default":cmTheme;
+		editor.setOption("theme", cmTheme);
+	}
+
+	function editorOnChangeHandler(cm, co) {
+		var markNotesRenderer = MarkNotesRenderer.getInstance();
+		$('.preview').html(
+			marked(
+				cm.getValue(),
+				{
+					langPrefix:"brush:",
+					renderer:markNotesRenderer
+				}
+			)
+		);
+		//代码高亮
+		SyntaxHighlighter.defaults.toolbar = "false";
+		SyntaxHighlighter.highlight();
+		//流程图
+		var cnt=1;	//flowchart.js依赖id属性,在此统一生成id
+		$(".flowchart").each(function(){
+			$(this).attr('id','flowchart-'+cnt);
+			cnt++;
+		});
+		$("div[id^=flowchart-]").each(function(){
+			var diagram = flowchart.parse($(this).text());
+			$(this).empty();
+			diagram.drawSVG($(this).attr("id"),{"maxWidth": "3"});
+		});
+		//时序图
+		$(".sequence-diagram").sequenceDiagram({theme: 'hand'});
+		//DOT语言有向图
+		// $("div[class^='dot-graph-']").each(function(){
+		// 	var element = "."+$(this).attr("class");
+		// 	var dot = $(this).text();
+		// 	$(this).empty();
+		// 	d3.select(element).graphviz().renderDot(dot);
+		// });
+
+		//LaTex公式
+		$('p:contains("$$")').each(function(){
+			$(this).html(($(this).text().replace(/\\+\n/g,"\\\\\n")));
+		});
+		// $('p:contains("$")').each(function(){
+		// 	if(/[^\\]\$/.test($(this).text)){
+		// 		$(this).html($(this).text().replace(/\$/g,"\\$"));
+		// 	}
+		//	$(this).html(($(this).text().replace(/\$/g,"\\$")));
+		//});
+		MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementsByClassName("preview")[0]]);
+
+		$('.preview')[0].scrollTop = Math.round(cm.getCursor().line/cm.lineCount()*$('.preview')[0].scrollHeight);
+
+		$(window).ready(function(){
+			SyntaxHighlighter.defaults.toolbar = "false";
+		});
+	}
+	editor.on('change', editorOnChangeHandler);
+
 </script>
 </html>

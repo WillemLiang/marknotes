@@ -11,6 +11,7 @@ body{
 .topbar{
 	background-color: #f5f5f5; /*writeSmoke*/
 	height: 32px;
+	border-bottom: 1px solid #ccc;
 }
 .toolbar{
 	padding: 5px;
@@ -195,7 +196,6 @@ body{
 	background-color: #f5f5f5;
 	width: 197px;
 	height: 60px;
-	position: absolute;
 }
 .sidebar, .notepad{
 	height: 100%;
@@ -218,7 +218,7 @@ body{
 	overflow-x: hidden;
 	position: relative;
 }
-.folder-treeview p{
+.panel-title p{
 	background-image: url(../img/libraries.svg);
 	background-repeat: no-repeat;
 	background-position: 6px center;
@@ -232,10 +232,8 @@ body{
 }
 .folder-treeview-item{
 	background-image:url(../img/background.svg);
-	position: absolute;
 	bottom: 10px;
 	width: 100%;
-	top: 60px;
 }
 .folder-item {padding: 0;margin: 0;font-size: 10pt;line-height: 20px;}
 .folder-item li{list-style:none;}
@@ -290,11 +288,10 @@ body{
 }
 .notes-item > ul{
 	line-height: 20px;
-	padding: 10px 0px;
+	padding: 0px 10px;
 	margin: 0;
 }
 .notes-item > ul > li{
-	padding: 0px 10px;
 	list-style: none;
 	font-size: 10pt;
 	color: #555;
@@ -350,7 +347,7 @@ body{
 	margin-left: -4px;
 	background-color: #f5f5f5;
 	width: 80px;
-	height: 32px;
+	height: 30px;
 	border: none;
 	color: #555;
 	font-size: 14px;
