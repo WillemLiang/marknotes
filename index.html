@@ -111,10 +111,6 @@
 	<script type="text/javascript" src="plugins/snap_svg/snap.svg-min.js"></script>		<!-- 时序图插件依赖 -->
 	<script type="text/javascript" src="plugins/underscore/underscore-min.js"></script>	<!-- 时序图插件依赖 -->
 	<script type="text/javascript" src="plugins/sequence-diagram/sequence-diagram-min.js"></script>
-	<!--MathJax-->
-	<!-- <script type="text/javascript" src="plugins/mathjax/MathJaxTeX-MML-AM_HTMLorMML.js"></script> -->
-	<!--<script type="text/javascript" src="plugins/mathjax/MathJax.js"></script>-->
-	<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js"></script>
 	<!--mermaid-->
 	<script type="text/javascript" src="plugins/mermaid/mermaid.min.js"></script>
 	<!-- dot-->
@@ -125,31 +121,28 @@
 	<!-- oneDrive-->
 	<script type="text/javascript" src="https://js.live.net/v7.0/OneDrive.js"></script>
 	<script src="js/oneDrive.js"></script>
-
-<script>
-// type="text/x-mathjax-config">
-
-//var mathId = document.getElementsByClassName("preview"); //选择公式识别范围
-MathJax.Hub.Config({
-	showProcessingMessages: false, //关闭js加载过程信息
-	messageStyle: "none", //不显示信息
-	extensions: ["tex2jax.js"],
-	jax: ["input/TeX", "output/HTML-CSS"],
-	tex2jax: {
-		inlineMath: [ ['$','$'], ["\\(","\\)"] ], //行内公式选择符
-		displayMath: [ ['$$','$$'], ["\\[","\\]"] ], //段内公式选择符
-		processEscapes: true, //
-		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'] //避开某些标签
-	},
-	"HTML-CSS": {
-		availableFonts: ["STIX","TeX"], //可选字体
-		showMathMenu: false //关闭右击菜单显示
-	}
-});
-//MathJax.Hub.Queue(["Typeset",MathJax.Hub,mathId]);
-
-</script>
-<!-- <script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+	<!--MathJax-->
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			showProcessingMessages: false, //关闭js加载过程信息
+			messageStyle: "none", //不显示信息
+			extensions: ["tex2jax.js"],
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$','$'], ["\\(","\\)"] ], //行内公式选择符
+				displayMath: [ ['$$','$$'], ["\\[","\\]"] ], //段内公式选择符
+				processEscapes: true, //
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],  //避开某些标签
+				ignoreClass: "toolbar|sidebar|editor"
+			},
+			"HTML-CSS": {
+				availableFonts: ["STIX","TeX"], //可选字体
+				showMathMenu: false //关闭右击菜单显示
+			}
+		});
+	</script>
+	<!--<script type="text/javascript" src="plugins/mathjax/MathJax.js"></script>-->
+	<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js"></script>
 </head>
 <body>
 <div class="container">
@@ -523,8 +516,8 @@ MathJax.Hub.Config({
 				$('.editor').show();
 				$('.render').show();
 				$('.notepad').css("marginLeft",402);  //.attr('margin-left','402px');
-				$('.editor').css({"width": "50%"});
-				$('.render').css({"width": "50%", "background-color":"#fff"});
+				$('.editor').css({"width": "50%"});  //$('.editor').css({"display": "none"});
+				$('.render').css({"width": "50%", "background-color":"#fff"});  //$('.render').css({"width": "100%", "background-color":"#fff"});
 				$('.preview').css({"width":"100%", "padding":"0px 8px","margin":"0", "box-shadow":"unset"});
 				break;
 			case 'Simple':
@@ -658,8 +651,9 @@ MathJax.Hub.Config({
 		// 	$(this).empty();
 		// 	d3.select(element).graphviz().renderDot(dot);
 		// });
-
-		//LaTex公式
+		//LaTex公式,一行公式
+		//replace(/\\\$/g,"\\\\\$")
+		//LaTex公式,多行公式
 		$('p:contains("$$")').each(function(){
 			$(this).html(($(this).text().replace(/\\+\n/g,"\\\\\n")));
 		});
